@@ -14,9 +14,11 @@ node_modules/
 # Personal Claude Code settings (machine-specific paths)
 /.claude/settings.local.json
 
-# 本機維運腳本 — remote-access.env 含個人網域、email 與 Cloudflare API token，
-# 其餘腳本描述公司/家用機器之間的連線方式。整個目錄都不進 public repo。
-/scripts/
+# 本機維運腳本
+/scripts/*
+!/scripts/remote-access/
+/scripts/remote-access/*
+!/scripts/remote-access/work-bootstrap.sh
 
 .DS_Store
 .env
