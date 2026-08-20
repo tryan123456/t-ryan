@@ -25,6 +25,13 @@ fi
 say() { printf '\033[34m==>\033[0m %s\n' "$*"; }
 ok()  { printf '\033[32m  ✓\033[0m %s\n' "$*"; }
 
+# 參數打錯（尤其是使用者名稱）會一路走到最後才以 Permission denied 收場，
+# 所以先把要用的值攤開來給人看。
+say "設定"
+echo "  主機   : $SSH_HOSTNAME"
+echo "  使用者 : $SSH_USER      ← 這是家裡那台的帳號，打錯就登不進去"
+echo "  別名   : ssh $SSH_ALIAS"
+
 # ---- 1. cloudflared（放在 ~/.local/bin，不用 sudo）----
 
 BIN="$HOME/.local/bin/cloudflared"
@@ -103,7 +110,7 @@ fi
 cat <<EOF
 
   ssh $SSH_ALIAS                      # 進家裡的機器
-  https://$WEB_HOSTNAME               # 家裡的 dev server（也可用 http://127.0.0.1:$DEV_PORT）
+  https://$WEB_HOSTNAME               # 家裡的 dev server（也可用 http://127.0.0.1:${DEV_PORT}）
 
   這台機器上沒有任何長期金鑰，時間到憑證自己失效，sandbox 被回收也不用善後。
 EOF
