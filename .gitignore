@@ -1,0 +1,23 @@
+node_modules/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/.playwright-mcp/
+
+# gh CLI project-scoped auth — contains an OAuth token, never commit
+/.gh/
+
+# Personal Claude Code settings (machine-specific paths)
+/.claude/settings.local.json
+
+# 本機維運腳本 — remote-access.env 含個人網域、email 與 Cloudflare API token，
+# 其餘腳本描述公司/家用機器之間的連線方式。整個目錄都不進 public repo。
+/scripts/
+
+.DS_Store
+.env
+.env.local
