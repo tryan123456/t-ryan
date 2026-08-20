@@ -1,0 +1,78 @@
+/**
+ * Design tokens, mirrored from `src/lib/theme.ts`.
+ *
+ * The canvas can't read custom properties, so the palette exists twice — once
+ * here for DOM chrome, once in TS for ECharts. Same hexes, same roles.
+ * Dark is declared under both the media query (OS setting) and the
+ * `data-theme` stamp (in-app toggle), with the toggle winning either way.
+ */
+
+:root {
+  color-scheme: light;
+
+  --surface-1: #fcfcfb;
+  --page-plane: #f9f9f7;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border-hairline: rgba(11, 11, 11, 0.1);
+  --wash: rgba(42, 120, 214, 0.09);
+  --wash-strong: rgba(42, 120, 214, 0.16);
+
+  --series-compute: #2a78d6;
+  --series-storage: #eb6834;
+  --series-network: #1baf7a;
+  --trend-ink: #52514e;
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
+
+  --radius: 8px;
+  --radius-sm: 4px;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme='light'])) {
+    color-scheme: dark;
+
+    --surface-1: #1a1a19;
+    --page-plane: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --baseline: #383835;
+    --border-hairline: rgba(255, 255, 255, 0.1);
+    --wash: rgba(57, 135, 229, 0.14);
+    --wash-strong: rgba(57, 135, 229, 0.24);
+
+    --series-compute: #3987e5;
+    --series-storage: #d95926;
+    --series-network: #199e70;
+    --trend-ink: #c3c2b7;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --surface-1: #1a1a19;
+  --page-plane: #0d0d0d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --gridline: #2c2c2a;
+  --baseline: #383835;
+  --border-hairline: rgba(255, 255, 255, 0.1);
+  --wash: rgba(57, 135, 229, 0.14);
+  --wash-strong: rgba(57, 135, 229, 0.24);
+
+  --series-compute: #3987e5;
+  --series-storage: #d95926;
+  --series-network: #199e70;
+  --trend-ink: #c3c2b7;
+}

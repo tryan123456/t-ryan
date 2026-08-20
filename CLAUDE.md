@@ -3,6 +3,9 @@
 Playwright browser automation. Tests in `tests/`, run with `npm test`.
 A Playwright MCP server is configured in `.mcp.json` for interactive browser control.
 
+`apps/` 底下是各自獨立的專案，有自己的 `package.json` 與 `node_modules`，
+不共用 root 的依賴 — 要在該目錄底下跑 `npm install` / `npm run dev`
+
 ## 推送前必須檢查機敏資料
 
 **這是 public repo。** 每次 `git push` 之前 — 包含 `gh repo create --push`、`git push --force`、
@@ -47,8 +50,3 @@ git log --format='%an <%ae>%n%cn <%ce>' origin/main..HEAD | sort -u   # commit �
 
 若該內容已經被 commit 過，要一併提醒 user：單純刪掉檔案再 commit 是**不夠的**，
 舊 commit 仍留有紀錄，需要改寫歷史，而且已經公開過的憑證必須視為外洩、直接輪替。
-
-### 注意
-
-`.gitignore` 擋掉的只是「還沒被 tracked 的檔案」。已經 tracked 的檔案即使事後加進
-`.gitignore` 也依然會被推送 — 所以每次都要實際掃過 `git diff` 的內容，不能只依賴 gitignore。
