@@ -1,0 +1,35 @@
+{
+  "name": "csv-merge",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "binaryName": "csv-merge",
+    "targets": [
+      "aarch64-apple-darwin",
+      "wasm32-wasip1-threads"
+    ],
+    "wasm": {
+      "initialMemory": 1024,
+      "maximumMemory": 65536
+    }
+  },
+  "scripts": {
+    "build": "napi build --platform --release",
+    "build:wasm": "RUSTFLAGS='-C target-feature=+simd128' napi build --platform --release --target wasm32-wasip1-threads",
+    "test": "node --no-warnings test/correctness.mjs",
+    "gen": "node bench/gen.mjs",
+    "bench": "node bench/bench.mjs",
+    "typecheck": "tsc -p ts"
+  },
+  "devDependencies": {
+    "@emnapi/core": "^2.0.0-alpha.5",
+    "@emnapi/runtime": "^2.0.0-alpha.5",
+    "@napi-rs/cli": "^3.10.5",
+    "@napi-rs/wasm-runtime": "^1.2.4",
+    "@types/node": "^26.6.3",
+    "emnapi": "^2.0.0-alpha.5",
+    "typescript": "^7.0.2"
+  }
+}
