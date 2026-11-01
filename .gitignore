@@ -20,6 +20,14 @@ node_modules/
 /scripts/remote-access/*
 !/scripts/remote-access/work-bootstrap.sh
 
+# 離線安裝用的 release tarball。單檔 128–238 MB，超過 GitHub 單檔 100 MB 硬限制，
+# 推上去會被拒。要搬到別台機器請用各 bundle README.md 裡的打包指令，不要走 git。
+/vendor/*/artifacts/
+
+# 上游原始碼快照。離線安裝完全不需要它（安裝只用 installers/ 和 artifacts/），
+# 留在本機是為了查路徑跟版本釘選。要重建的指令在各 bundle 的 README.md。
+/vendor/*/src/
+
 .DS_Store
 .env
 .env.local

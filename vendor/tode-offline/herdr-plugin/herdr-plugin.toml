@@ -1,0 +1,22 @@
+id = "zenbu-labs.tode"
+name = "Terminal Code"
+version = "0.1.1"
+min_herdr_version = "0.8.2"
+description = "Open VS Code inside herdr"
+platforms = ["linux", "macos"]
+
+# Upstream builds with `curl -fsSL https://tode.sh/install | bash`. That is the
+# one line this copy changes: it defers to the bundle's offline installer
+# instead, so nothing here can reach the network. `herdr plugin link` — how this
+# bundle is meant to be registered — does not run [[build]] at all, but this
+# keeps the manifest honest for the paths that do.
+[[build]]
+command = ["bash", "build.sh"]
+platforms = ["linux", "macos"]
+
+[[actions]]
+id = "open-split"
+title = "Open terminal-code (right split)"
+description = "Split the focused pane and open terminal-code in it"
+contexts = ["global"]
+command = ["bash", "open-split.sh"]

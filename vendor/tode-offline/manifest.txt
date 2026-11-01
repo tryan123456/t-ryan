@@ -1,0 +1,13 @@
+# Offline artifact registry for install-offline.sh
+#
+# product      target      version  file                                    sha256
+#
+# sha256 values are the ones published by upstream:
+#   tode         https://tode.sh/install/latest.json
+#   code-server  src/src/codeserver/vendored.ts (CODE_SERVER_BUILDS)
+#
+# Lines beginning with # are ignored. To add a target, download the matching
+# tarball into artifacts/ and append a row here.
+
+tode         linux-x64  v0.4.3   tode-linux-x64.tar.gz                   2e0b12321cb83c3b42b84516f29ba79618915314c459ac16275cc33e9c340051
+code-server  linux-x64  4.132.0  code-server-4.132.0-linux-amd64.tar.gz  a38d26f4cb81f768feddff79e2937fd3f39c83d3da8be3da7225e1087e62e4ed
