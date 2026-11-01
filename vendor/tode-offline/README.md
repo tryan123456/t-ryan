@@ -239,6 +239,8 @@ chromium 需要 `libnss3`、`libgtk-3-0`、`libasound2t64`、`libgbm1` 這類系
 - `herdr plugin link` 在乾淨的 herdr 0.9.5 上登記成 `local:`
 - 對照組：`herdr plugin install zenbu-labs/terminal-code/herdr-plugin` 在同一個
   容器裡失敗 —— 這就是為什麼離線要走 `link`
+- 從**乾淨的 git clone**（沒有 `src/`）只補 `artifacts/`，同一組流程再跑一次也通 ——
+  也就是 git 裡的檔案本身就夠裝
 
 **還沒驗的**：真正的裸機／VM linux（容器沒有 GUI、沒有 TTY，所以沒有真的把
 `tode` 的編輯器畫面開起來過 —— 也就是說「第一次啟動不會去抓 code-server」這件事
@@ -319,8 +321,8 @@ src/                   上游原始碼快照（不在 git 裡，見下）
 從乾淨的 clone 補齊（需要網路）：
 
 ```bash
-# artifacts/
-cd artifacts
+# artifacts/（git 不追蹤空目錄，所以 clone 下來沒有這個資料夾，要自己建）
+mkdir -p artifacts && cd artifacts
 curl -fLO https://github.com/zenbu-labs/terminal-code/releases/download/v0.4.3/tode-linux-x64.tar.gz
 curl -fLO https://github.com/coder/code-server/releases/download/v4.132.0/code-server-4.132.0-linux-amd64.tar.gz
 cd ..
